@@ -153,6 +153,7 @@
             <compilerflag value="-mfloat-abi=hard" if="rpi" />
             <compilerflag value="-I-abi=hard" if="rpi" />
             <compilerflag value="-I/opt/vc/include" if="rpi" />
+            <compilerflag value="-I/usr/local/include" if="rpi" />
             <compilerflag value="-I/opt/vc/include/interface/vcos/pthreads" if="rpi" />
             <compilerflag value="-I/opt/vc/include/interface/vmcs_host/linux" if="rpi" />
             <compilerflag value="-I/usr/include/interface/vcos/pthreads" if="rpi" />
@@ -356,11 +357,17 @@
 
         <section if="LIBSDL_RPI || rpi">
 
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpievents.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpimouse.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpiopengles.c" />
-            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpivideo.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpievents.c" if="rpi3" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpimouse.c" if="rpi3"/>
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpiopengles.c" if="rpi3"/>
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/raspberry/SDL_rpivideo.c" if="rpi3"/>
 
+            <compilerflag value="-I/usr/include/libdrm"/>
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/kmsdrm/SDL_kmsdrmevents.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/kmsdrm/SDL_kmsdrmmouse.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/kmsdrm/SDL_kmsdrmopengles.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/kmsdrm/SDL_kmsdrmdyn.c" />
+            <file name="${NATIVE_TOOLKIT_PATH}/sdl/src/video/kmsdrm/SDL_kmsdrmvideo.c" />
         </section>
 
         <section if="LIBSDL_PSP">

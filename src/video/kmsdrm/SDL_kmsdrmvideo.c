@@ -389,7 +389,7 @@ KMSDRM_CreateSurfaces(_THIS, SDL_Window * window)
     SDL_DisplayData *dispdata = (SDL_DisplayData *) SDL_GetDisplayForWindow(window)->driverdata;
     Uint32 width = dispdata->mode.hdisplay;
     Uint32 height = dispdata->mode.vdisplay;
-    Uint32 surface_fmt = GBM_FORMAT_XRGB8888;
+    Uint32 surface_fmt = GBM_FORMAT_ARGB8888;
     Uint32 surface_flags = GBM_BO_USE_SCANOUT | GBM_BO_USE_RENDERING;
     EGLContext egl_context;
 
