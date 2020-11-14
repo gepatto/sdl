@@ -75,6 +75,12 @@ typedef struct SDL_WindowData
     int egl_surface_dirty;
     EGLSurface egl_surface;
 #endif
+    /* For scaling and AR correction. */
+    int32_t src_w;
+    int32_t src_h;
+    int32_t output_w;
+    int32_t output_h;
+    int32_t output_x;
 } SDL_WindowData;
 
 typedef struct KMSDRM_FBInfo
