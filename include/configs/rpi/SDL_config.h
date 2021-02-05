@@ -34,7 +34,7 @@
 
 /* Make sure that this isn't included by Visual C++ */
 #ifdef _MSC_VER
-#error You should run hg revert SDL_config.h 
+#error You should run hg revert SDL_config.h
 #endif
 
 /* C language features */
@@ -78,10 +78,10 @@
 #define HAVE_MATH_H 1
 #define HAVE_ICONV_H 1
 #define HAVE_SIGNAL_H 1
+
 /* #undef HAVE_ALTIVEC_H */
 /* #undef HAVE_PTHREAD_NP_H */
-#define HAVE_LIBUDEV_H 1
-/* #define HAVE_DBUS_DBUS_H 1 */
+#define HAVE_DBUS_DBUS_H 1
 /* #undef HAVE_IBUS_IBUS_H */
 
 /* C library functions */
@@ -240,7 +240,7 @@
 /* #undef SDL_JOYSTICK_HAIKU */
 /* #undef SDL_JOYSTICK_DINPUT */
 /* #undef SDL_JOYSTICK_XINPUT */
-/* #undef SDL_JOYSTICK_DUMMY */
+// #define SDL_JOYSTICK_DUMMY
 /* #undef SDL_JOYSTICK_IOKIT */
 #define SDL_JOYSTICK_LINUX 1
 /* #undef SDL_JOYSTICK_ANDROID */
@@ -248,6 +248,7 @@
 /* #undef SDL_JOYSTICK_USBHID */
 /* #undef SDL_JOYSTICK_USBHID_MACHINE_JOYSTICK_H */
 /* #undef SDL_JOYSTICK_EMSCRIPTEN */
+// #define SDL_JOYSTICK_VIRTUAL 1
 /* #undef SDL_HAPTIC_DUMMY */
 #define SDL_HAPTIC_LINUX 1
 /* #undef SDL_HAPTIC_IOKIT */
@@ -289,58 +290,57 @@
 /* #undef SDL_VIDEO_DRIVER_MIR */
 /* #undef SDL_VIDEO_DRIVER_MIR_DYNAMIC */
 /* #undef SDL_VIDEO_DRIVER_MIR_DYNAMIC_XKBCOMMON */
-#define SDL_VIDEO_DRIVER_X11 1
 // #define SDL_VIDEO_DRIVER_RPI 1
 
 #define SDL_VIDEO_DRIVER_KMSDRM 1
 #define SDL_VIDEO_DRIVER_KMSDRM_DYNAMIC "libdrm.so.2"
 #define SDL_VIDEO_DRIVER_KMSDRM_DYNAMIC_GBM "libgbm.so.1"
 
+#define SDL_VIDEO_DRIVER_X11 1
 #define SDL_VIDEO_DRIVER_X11_DYNAMIC "libX11.so.6"
 #define SDL_VIDEO_DRIVER_X11_DYNAMIC_XEXT "libXext.so.6"
-#define SDL_VIDEO_DRIVER_X11_XDBE 1
-// #define SDL_VIDEO_DRIVER_X11_DYNAMIC "/usr/lib/arm-linux-gnueabihf/libX11.so.6"
-// #define SDL_VIDEO_DRIVER_X11_DYNAMIC_XEXT "/usr/lib/arm-linux-gnueabihf/libXext.so.6"
-/* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XCURSOR */
-/* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XINERAMA */
-/* #define SDL_VIDEO_DRIVER_X11_DYNAMIC_XINPUT2 "libXi.so.6" */
-/* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XRANDR */
+#define SDL_VIDEO_DRIVER_X11_DYNAMIC_XCURSOR "libXcursor.so.1"
+#define SDL_VIDEO_DRIVER_X11_DYNAMIC_XINERAMA "libXinerama.so.1"
+#define SDL_VIDEO_DRIVER_X11_DYNAMIC_XINPUT2 "libXi.so.6"
+#define SDL_VIDEO_DRIVER_X11_DYNAMIC_XRANDR "libXrandr.so.2"
 /* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XSS */
 /* #undef SDL_VIDEO_DRIVER_X11_DYNAMIC_XVIDMODE */
-/* #undef SDL_VIDEO_DRIVER_X11_XCURSOR */
-/* #undef SDL_VIDEO_DRIVER_X11_XINERAMA */
-/* #define SDL_VIDEO_DRIVER_X11_XINPUT2 1 */
-/* #define SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_MULTITOUCH 1 */
-/* #undef SDL_VIDEO_DRIVER_X11_XRANDR */
+#define SDL_VIDEO_DRIVER_X11_XCURSOR 1
+/* #undef SDL_VIDEO_DRIVER_X11_XDBE */
+#define SDL_VIDEO_DRIVER_X11_XINERAMA 1
+#define SDL_VIDEO_DRIVER_X11_XINPUT2 1
+#define SDL_VIDEO_DRIVER_X11_XINPUT2_SUPPORTS_MULTITOUCH 1
+#define SDL_VIDEO_DRIVER_X11_XRANDR 1
 /* #undef SDL_VIDEO_DRIVER_X11_XSCRNSAVER */
 #define SDL_VIDEO_DRIVER_X11_XSHAPE 1
 /* #undef SDL_VIDEO_DRIVER_X11_XVIDMODE */
 #define SDL_VIDEO_DRIVER_X11_SUPPORTS_GENERIC_EVENTS 1
-/* #undef SDL_VIDEO_DRIVER_X11_CONST_PARAM_XDATA32 */
 #define SDL_VIDEO_DRIVER_X11_CONST_PARAM_XEXTADDDISPLAY 1
 #define SDL_VIDEO_DRIVER_X11_HAS_XKBKEYCODETOKEYSYM 1
 
 /* #undef SDL_VIDEO_RENDER_D3D */
 /* #undef SDL_VIDEO_RENDER_D3D11 */
-/* #undef SDL_VIDEO_RENDER_OGL */
+#define SDL_VIDEO_RENDER_OGL 1
 #define SDL_VIDEO_RENDER_OGL_ES 1
 #define SDL_VIDEO_RENDER_OGL_ES2 1
 /* #undef SDL_VIDEO_RENDER_DIRECTFB */
 
 /* Enable OpenGL support */
 /* #undef SDL_VIDEO_OPENGL */
+#define SDL_VIDEO_OPENGL 1
 /* #define SDL_VIDEO_OPENGL_ES 1 */
 #define SDL_VIDEO_OPENGL_ES2 1
 /* #undef SDL_VIDEO_OPENGL_BGL */
 /* #undef SDL_VIDEO_OPENGL_CGL */
-#define SDL_VIDEO_OPENGL_EGL 1 
+#define SDL_VIDEO_OPENGL_GLX 1
+#define SDL_VIDEO_OPENGL_EGL 1
 /* #undef SDL_VIDEO_OPENGL_GLX */
 /* #undef SDL_VIDEO_OPENGL_WGL */
 /* #undef SDL_VIDEO_OPENGL_OSMESA */
 /* #undef SDL_VIDEO_OPENGL_OSMESA_DYNAMIC */
 
 /* Enable Vulkan support */
-#define SDL_VIDEO_VULKAN 1
+// #define SDL_VIDEO_VULKAN 1
 
 /* Enable system power support */
 #define SDL_POWER_LINUX 1
