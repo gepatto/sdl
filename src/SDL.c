@@ -468,7 +468,7 @@ SDL_GetRevision(void)
 int
 SDL_GetRevisionNumber(void)
 {
-    return SDL_REVISION_NUMBER;
+    return 0;  /* doesn't make sense without Mercurial. */
 }
 
 /* Get the name of the platform */
@@ -527,6 +527,8 @@ SDL_GetPlatform()
     return "iOS";
 #elif __PSP__
     return "PlayStation Portable";
+#elif __VITA__
+    return "PlayStation Vita";
 #else
     return "Unknown (see SDL_platform.h)";
 #endif

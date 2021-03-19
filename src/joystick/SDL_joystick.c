@@ -95,6 +95,9 @@ static SDL_JoystickDriver *SDL_joystick_drivers[] = {
 #ifdef SDL_JOYSTICK_VIRTUAL
     &SDL_VIRTUAL_JoystickDriver,
 #endif
+#ifdef SDL_JOYSTICK_VITA
+    &SDL_VITA_JoystickDriver
+#endif
 #if defined(SDL_JOYSTICK_DUMMY) || defined(SDL_JOYSTICK_DISABLED)
     &SDL_DUMMY_JoystickDriver
 #endif
@@ -1813,6 +1816,7 @@ SDL_GetJoystickGameControllerType(const char *name, Uint16 vendor, Uint16 produc
             0x162e, /* Joytech */
             0x1689, /* Razer Onza */
             0x1bad, /* Harmonix */
+            0x20d6, /* PowerA */
             0x24c6, /* PowerA */
         };
 
@@ -1836,6 +1840,7 @@ SDL_GetJoystickGameControllerType(const char *name, Uint16 vendor, Uint16 produc
             0x0e6f, /* PDP */
             0x0f0d, /* Hori */
             0x1532, /* Razer Wildcat */
+            0x20d6, /* PowerA */
             0x24c6, /* PowerA */
             0x2e24, /* Hyperkin */
         };
@@ -1920,6 +1925,11 @@ SDL_IsJoystickXboxOneSeriesX(Uint16 vendor_id, Uint16 product_id)
     if (vendor_id == USB_VENDOR_MICROSOFT) {
         if (product_id == USB_PRODUCT_XBOX_ONE_SERIES_X ||
             product_id == USB_PRODUCT_XBOX_ONE_SERIES_X_BLUETOOTH) {
+            return SDL_TRUE;
+        }
+    }
+    if (vendor_id == USB_VENDOR_POWERA_ALT) {
+        if (product_id == USB_PRODUCT_XBOX_ONE_SERIES_X_POWERA) {
             return SDL_TRUE;
         }
     }
